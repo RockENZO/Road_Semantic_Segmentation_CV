@@ -23,7 +23,7 @@ This repository contains code and results for a semantic segmentation competitio
 
 1. **Setup**
    - Install dependencies (PyTorch, torchvision, numpy, PIL, etc.)
-   - (Optional) Use Google Colab for GPU acceleration
+   - (Optional) Use Google Colab or **Kaggle** for GPU acceleration
 
 2. **Prepare Data**
    - Place the dataset in the `seg_data/` directory as described above.
