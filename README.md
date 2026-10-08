@@ -54,12 +54,16 @@ pip install -r requirements.txt
    - Evaluation uses mean Intersection over Union (mIoU) as the primary metric.
    - Results and predictions are saved in the `result/` subfolders.
 
-## Results
+## Results and evaluation scope
 
-- Baseline mIoU: ~0.28
-- Best mIoU: see ablation tables in `Final_Report.pdf` and individual notebooks
+The main notebook’s historical ablation table lists baseline mIoU **0.286** / **66.97 GFLOPs**, a residual/skip/dilated configuration at **0.3421** / **204.83 GFLOPs**, and a MobileNetV3 configuration at **0.3377** / **18.10 GFLOPs**. Values are recorded notebook results, not a new rerun or an estimate across seeds. The table header says percent, but its listed mIoU values use the 0–1 scale.
+
+The checked-in training loop measures `testing/label` during training and uses that score for best-checkpoint selection and early stopping. Consequently, the directory called testing is a development/selection set in this workflow; these results are not an untouched final-test claim. A future study needs a separate validation partition and a frozen final test before making generalization claims.
+
+See [the main notebook](segmentation-2025.ipynb), [the report](Final_Report.pdf) and individual experiment notebooks for historical settings. Alternative architecture cells are present; choose the matching model, loss and training/prediction path rather than assuming every cell forms one universally runnable pipeline.
 
 ## References
 
 - [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
 - [fvcore FLOPs Analysis](https://github.com/facebookresearch/fvcore)
+
